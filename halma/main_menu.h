@@ -265,7 +265,7 @@ int GS_numbers(int winner1,int winner2,int &swWinner2){//game statics numbers
 
 int GS_Best(){
 	FILE *Best;
-	int Win,Draw,Lose;
+	int Win,Draw,Lose,f=1;
 	struct player BestP;//havi amre tamami bazikon hayi ba borde bishtar
 	Best=fopen("players.dat","rb");
 	if(!Best){
@@ -297,8 +297,9 @@ int GS_Best(){
 					fseek(Best,-40L *sizeof(char),SEEK_CUR);
 					fread(&BestP,sizeof(player),1,Best);
 				}
-				else fseek(Best,1L*sizeof(int),SEEK_CUR);
+				fseek(Best,1L*sizeof(int),SEEK_CUR);
 			}
+			//else fseek(Best,40 *sizeof(char),SEEK_CUR);
 		}
 		else fseek(Best,2*sizeof(int),SEEK_CUR);
 		fseek(Best,40 *sizeof(char),SEEK_CUR);
@@ -321,7 +322,7 @@ int GS_Best(){
 
 int GS_Weak(){
 	FILE *Weak;
-	int Win,Draw,Lose;
+	int Win,Draw,Lose,f=1;
 	struct player WeakP;//havi amre tamami bazikon hayi ba borde bishtar
 	Weak=fopen("players.dat","rb");
 	if(!Weak){
@@ -353,7 +354,7 @@ int GS_Weak(){
 					fseek(Weak,-40L *sizeof(char),SEEK_CUR);
 					fread(&WeakP,sizeof(player),1,Weak);
 				}
-				else fseek(Weak,2L*sizeof(int),SEEK_CUR);
+				fseek(Weak,1L*sizeof(int),SEEK_CUR);
 			}
 		}
 		else fseek(Weak,1*sizeof(int),SEEK_CUR);
@@ -644,25 +645,25 @@ void rules() {
      printf("1)YOU CAN CHOOSE PLAY FOR TWO OR FOUR PEOPLE.");
       gotoxy(3, 5);
      colorizedText(13);
-     printf("2)YOU CAN CHOOSE THE PLAY WITH YOUR FRIENDS OR");
+     printf("2)YOU CAN CHOOSE TO PLAY WITH YOUR FRIENDS OR");
      gotoxy(4, 6);
      colorizedText(13);
-     printf("PLAY WITH THE COMPUTER.");
+     printf("PLAY WITH THE COMPUTER.(COMPUTER RIVAL OR HUMAN RIVAL)");
       gotoxy(3, 8);
      colorizedText(13);
      printf("3)YOU HAVE TO GET ALL YOUR PIESCE TO THE OPPONENT'S");
      gotoxy(4, 9);
      colorizedText(13);
-     printf("PLAYING FIELD IN FRONT OF YOU.");
+     printf("PLAYING FIELD IN FRONT OF YOU.(THE OPPOSITE CORNER)");
       gotoxy(3, 11);
      colorizedText(13);
-     printf("4)AND UNTIL THE LEAVE_CAMP COUNT IS COMPLETED,YOU");
+     printf("4)UNTIL THE LEAVE_CAMP COUNT IS COMPLETED,YOU");
       gotoxy(4, 12);
      colorizedText(13);
      printf("MUST REMOVE ALL YOUR PIECES FROM YOUR PLAYROUND.");
       gotoxy(3, 14);
      colorizedText(13);
-     printf("5)SIEG:IF YOU CAN ONLY BLOCK ONE OF THE OPPONENT'S ");
+     printf("5)IF YOU CAN ONLY BLOCK ONE OF THE OPPONENT'S ");
       gotoxy(4, 15);
      colorizedText(13);
      printf("PIECES THAT CAN NOT MOVE YOU WILL BE INTRODUCED AS");
@@ -671,57 +672,54 @@ void rules() {
      printf("THE WINNER OF THE GAME.");
       gotoxy(3, 18);
      colorizedText(13);
-     printf("6)TOW PLAYER PIECES CAN NOT BE IN THE SAME HOUSE OF");
+     printf("6)TWO PLAYER PIECES CAN NOT BE IN THE SAME HOUSE OF");
      gotoxy(3, 19);
      colorizedText(13);
      printf("THE GAME.");
       gotoxy(3, 21);
      colorizedText(13);
-     printf("7)SIMPLE MOVE:YOU CAN ONLY MOVE ONE HOUSE FRONT");
+     printf("7)SIMPLE MOVE:YOU CAN ONLY MOVE ONE HOUSE AROUND YOU(OUT OF 8)");
       gotoxy(4, 22);
      colorizedText(13);
-     printf("OR BEHIND OR LEFT OR RIGHT AND DO IT ONLY ONCE");
-      gotoxy(4, 23);
-     colorizedText(13);
-     printf("IN YOUR TURN.");
-      gotoxy(3, 25);
+     printf("AND YOU CAN DO IT ONLY ONCE IN YOUR TURN.");
+      gotoxy(3, 24);
      colorizedText(13);
      printf("8)JUMP:YOU CAN JUMP OVER A PLAYER AS LONG AS YOU ARE");
-     gotoxy(4, 26);
+      gotoxy(4, 25);
      colorizedText(13);
      printf("ONLY ONE HOUSE AWAY,AND YOU CAN DO THIS SEVERAL ");
-     gotoxy(4,27);
+     gotoxy(4, 26);
      colorizedText(13);
      printf("TIMES IN A ROUND AS LONG AS THE SITUATION ALLOWS.");
-     gotoxy(3,29);
+     gotoxy(3,28);
      colorizedText(13);
      printf("9)SUPER JUMP:YOU CAN ONLY JUMP OVER A BEAD FROM");
-     gotoxy(4,30);
+     gotoxy(4,29);
      colorizedText(13);
      printf("A DISTANCE,PROVIDED THAT THE DISTANCE BETWEEN");
+     gotoxy(4,30);
+     colorizedText(13);
+     printf("THE YOU AND THE RIVAL IS THE SAME AND DO IT ONLY");
      gotoxy(4,31);
      colorizedText(13);
-     printf("THE BEAD AND THE BEAD IS THE SAME AND DO IT ONLY");
-     gotoxy(4,32);
-     colorizedText(13);
      printf("ONCE IN YOUR TURN.");
-     gotoxy(3,34);
+     gotoxy(3,33);
      colorizedText(13);
      printf("10)YOU MUST USE THE KEYBOARD TO MOVE THE PIECES.");
-     gotoxy(3,36);
+     gotoxy(3,35);
      colorizedText(13);
-     printf("11)COMPUTER RIVAL OPTION,YOU CAN CHOOSE WHETHER");
+     printf("11)'COMPUTER RIVAL' OPTION(IN MENU):YOU CAN CHOOSE WHETHER");
+     gotoxy(4,36);
+     colorizedText(13);
+     printf("YOUR RIVAL IS A HUMAN OR A COMPUTER ,AND");
      gotoxy(4,37);
      colorizedText(13);
-     printf("THE PLAYER IS A HUMAN OR A COMPUTER ,AND WE PUT ");
+     printf("THE HUMAN RIVAL OPTION IS FOR YOUR CONVENIENCE, SO");
      gotoxy(4,38);
      colorizedText(13);
-     printf("THE HUMAN RIVAL OPTION CARD FOR CONVENIENCE, SO");
+     printf("IF YOU JUST WANTED TO PLAY WITH A HUMAN ,YOU CAN ");
      gotoxy(4,39);
      colorizedText(13);
-     printf("IF YOU JUST WAMTED TO PLAY WITH A HUMAN ,YOU CAN ");
-     gotoxy(4,40);
-     colorizedText(13);
-     printf("SELECT THIS OPTION.");
+     printf("SELECT 'HUMAN RIVAL' OPTION(IN MENU).");
 }
 #endif
