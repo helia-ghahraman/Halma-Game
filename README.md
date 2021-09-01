@@ -2,10 +2,10 @@
 Halma is a famous old Victorian game in which the objective is not to capture your opponent's pieces but instead to hop over them in an effort to get to the opposite side first. Similar to Chinese Checkers but with more depth and added complexity as there are 8 directions of movement instead of 6.
 # Rules![rules](https://user-images.githubusercontent.com/76126890/131630640-2e3daeab-a168-4238-99de-142d3ae19a08.png)
 # How to run
-1) download the project.
-2) set up your game configuration from 'config.txt'file and save your changes.(There is a defult config already if you have no desire to change it)
-3) build the headers from 'halma'directory one by one and run the program.cpp at the end.( Dev-C++ required)
-4) sign in for the first time in the game and you can log in for the next time.
+1) Download the project.
+2) Set up your game configuration from 'config.txt'file and save your changes.(There is a defult config already if you have no desire to change it)
+3) Run the program.exe file or build the headers from 'halma'directory one by one and run the program.cpp at the end.( Dev-C++ required)
+4) Sign in for the first time in the game and you can log in for the next time.
 # Preview
 How it looks like generally on console:
  
