@@ -1,10 +1,10 @@
 {
-	Size = 5 * 5
-	Player_Num = 2
+	Size = 12 * 12
+	Player_Num = 4
 	First_Color = blue
 	Second_Color = green
 	Third_Color = yellow
 	Forth_Color = red
 	leave_camp_value = 50
-	Beads_order = 1 2 3 2
+	Beads_order = 1 2 3 4 5 4
 }
