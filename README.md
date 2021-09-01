@@ -4,7 +4,7 @@ Halma is a famous old Victorian game in which the objective is not to capture yo
 # How to run
 1) download the project.
 2) set up your game configuration from 'config.txt'file and save your changes.(There is a defult config already if you have no desire to change it)
-3) build the headers from 'halma'directory one by one and run the program.cpp at the end.
+3) build the headers from 'halma'directory one by one and run the program.cpp at the end.( Dev-C++ required)
 4) sign in for the first time in the game and you can log in for the next time.
 # Preview
 How it looks like generally on console:
